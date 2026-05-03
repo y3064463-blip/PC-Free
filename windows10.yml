@@ -4,8 +4,9 @@ services:
     container_name: windows
     environment:
       VERSION: "11"
-      RAM_SIZE: "10G"
-      CPU_CORES: "3"
+      RAM_SIZE: "12G"
+      CPU_CORES: "4"
+      DISK_SIZE: "12G"
     cap_add:
       - NET_ADMIN
     ports:
