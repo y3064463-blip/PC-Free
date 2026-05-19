@@ -10,6 +10,7 @@ services:
       RAM_SIZE: "4G"      # Win 10 için 2G çok az, Codespace'i zorlamadan 4G veriyoruz
       CPU_CORES: "2"
       DISK_SIZE: "20G"    # Win 10 kurulumu için diski 20GB yaptık
+      VNC_PASS: "1234"
     cap_add:
       - NET_ADMIN
     ports:
