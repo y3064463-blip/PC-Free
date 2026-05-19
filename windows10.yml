@@ -1,20 +1,23 @@
+version: '3.8'
+
 services:
   windows:
     image: dockurr/windows
     container_name: windows
     environment:
-      VERSION: "10"
-      RAM_SIZE: "8G"
+      VERSION: "11"
+      RAM_SIZE: "8G"      # Codespace'i çökertmemek için RAM'i mecbur kıstık
       CPU_CORES: "2"
-      DISK_SIZE: "12G"
+      DISK_SIZE: "14G"    # Win 11 için 12GB yetmeyebilir, en az 16GB yapalım
     cap_add:
       - NET_ADMIN
     ports:
       - "8006:8006"
       - "3389:3389/tcp"
     volumes:
-      - /tmp/docker-data:/mnt/disco1
-    devices:
-      - "/dev/kvm:/dev/kvm"
-      - "/dev/net/tun:/dev/net/tun"
+      - win_data:/storage # Geçici /tmp yerine Docker volume kullanalım
+    # KVM ve TUN satırlarını sildik çünkü Codespace buna izin vermez
     stop_grace_period: 2m
+
+volumes:
+  win_data:
